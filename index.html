@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Araf Islam - Official Profile</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Araf Islam - Telegram Bot Developer, Web Developer, Automation Expert from Bangladesh">
+  <meta name="keywords" content="Araf Islam, Telegram Bot, Web Developer, Node.js, Python">
+  <meta name="author" content="Araf Islam">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: -1;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      padding: 40px 30px;
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+      animation: fadeIn 1.4s ease forwards;
+      box-shadow: 0 0 40px rgba(0,198,255,0.15);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Profile Glow */
+    .profile-pic-wrapper {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 25px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-pic-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00c6ff, #0072ff, #00ffcc);
+      filter: blur(20px);
+      animation: glow 3s linear infinite;
+    }
+
+    @keyframes glow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      z-index: 1;
+      border: 3px solid #fff;
+      background: #000;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .info-box {
+      text-align: left;
+      margin-top: 25px;
+    }
+
+    .info-box h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #fff;
+      padding-bottom: 5px;
+    }
+
+    .info-box ul {
+      list-style: none;
+      line-height: 1.8;
+    }
+
+    .info-box ul li::before {
+      content: "› ";
+      color: #00c6ff;
+    }
+
+    .telegram-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      border-radius: 50px;
+      color: #fff;
+      font-size: 1.1em;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 0 15px #00c6ff;
+    }
+
+    .telegram-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00c6ff;
+    }
+
+    footer {
+      margin-top: 35px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    /* SMALL MUSIC BUTTON (TOP RIGHT) */
+    .music-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0,198,255,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    .music-btn.playing {
+      animation: spin 2s linear infinite;
+      box-shadow: 0 0 12px #00c6ff;
+    }
+
+    .music-btn.paused {
+      opacity: 0.5;
+      animation: pulse 2s infinite;
+    }
+
+    .music-btn img {
+      width: 18px;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 rgba(0,198,255,0.7); }
+      70% { box-shadow: 0 0 12px rgba(0,198,255,0); }
+      100% { box-shadow: 0 0 0 rgba(0,198,255,0); }
+    }
+
+    /* SOCIAL BOTTOM RIGHT */
+    .social-bar {
+      position: fixed;
+      right: 15px;
+      bottom: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 15;
+    }
+
+    .social-bar a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: rotateBtn 6s linear infinite;
+    }
+
+    .social-bar img {
+      width: 20px;
+    }
+
+/* Ultra Premium Music Hint */
+.music-hint {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #00c6ff;
+  z-index: 30;
+  white-space: nowrap;
+  animation: slideBounce 3.5s infinite;
+  text-shadow: 0 0 8px #00c6ff;
+}
+
+.music-hint .hand {
+  font-size: 18px;
+  animation: handBounce 0.8s infinite alternate;
+  filter: drop-shadow(0 0 6px #00c6ff);
+}
+
+.music-hint .text {
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: rgba(0, 198, 255, 0.15);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 12px rgba(0,198,255,0.6);
+}
+
+/* Left → Right + Glow */
+@keyframes slideBounce {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+/* Hand bounce */
+@keyframes handBounce {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-6px);
+  }
+}
+
+    @keyframes rotateBtn {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2em; }
+      p { font-size: 1em; }
+      .card { padding: 25px 20px; }
+    }
+
+/* Floating Text Layer */
+.floating-text-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.float-text {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0;
+  background: linear-gradient(135deg, #00c6ff, #ff5fd7, #00ffcc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(0.3px);
+  animation: floatUp 7s ease-in-out forwards;
+}
+
+/* floating motion */
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.9);
+  }
+  25% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.55;
+  }
+  80% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-18px) scale(1.05);
+  }
+}
+
+/* Glow when music is ON */
+.float-text.glow {
+  animation: floatUp 7s ease-in-out forwards, glowPulse 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    text-shadow:
+      0 0 6px rgba(0,198,255,0.4),
+      0 0 12px rgba(255,95,215,0.3);
+  }
+  to {
+    text-shadow:
+      0 0 10px rgba(0,198,255,0.8),
+      0 0 22px rgba(255,95,215,0.6);
+  }
+}
+
+/* Parallax drift */
+.float-text {
+  animation: floatUp 7s ease-in-out forwards;
+  will-change: transform;
+}
+
+/* extra drift motion */
+@keyframes drift {
+  from { transform: translateX(-6px); }
+  to   { transform: translateX(6px); }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline preload="auto">
+    <source src="bg.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Music Button -->
+  <div class="music-btn playing" id="musicBtn" onclick="toggleMusic()">
+    <img src="music.jpg">
+  </div>
+
+<!-- Music Hint -->
+<div class="music-hint">
+  <span class="hand">Play</span>
+  <span class="text">Music</span>
+</div>
+
+  <!-- Social Media -->
+  <div class="social-bar">
+    <a href="https://t.me/Araf_Tech_Official"><img src="telegram.jpg"></a>
+    <a href="https://x.com/ArafatHoss25632"><img src="x.jpg"></a>
+    <a href="https://github.com/islamhossainarafat61-hash"><img src="github.jpg"></a>
+    <a href="https://www.youtube.com/@araf_islamx"><img src="youtube.jpg"></a>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
+    <div class="card">
+
+      <div class="profile-pic-wrapper">
+        <img src="profile.jpg" class="profile-pic">
+      </div>
+
+      <h1>Araf Islam</h1>
+      <p>
+        Hi! I'm Araf Islam — a creative tech lover building bots, websites,
+        and Telegram tools with Node.js & Python. Owner of hacking related <br>
+        Telegram channel <strong>@Damxff</strong>.
+      </p>
+
+      <div class="info-box">
+        <h2>About Me</h2>
+        <ul>
+          <li><strong>Country:</strong> Bangladesh</li>
+          <li><strong>Age:</strong> 19</li>
+          <li><strong>Education:</strong> Diploma Engineering</li>
+          <li><strong>Subject:</strong> Electrical Engineering</li>
+          <li><strong>Hobbies:</strong> Coding, Gaming, Designing, Hacking</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h2>Skills</h2>
+        <ul>
+          <li>Node.js, Python, PHP Bots</li>
+          <li>HTML, CSS, JavaScript</li>
+          <li>Telegram Bot Development</li>
+          <li>Web UI/UX Design</li>
+          <li>Automation Systems</li>
+        </ul>
+      </div>
+
+      <a href="https://t.me/Araf_Islamx" target="_blank" class="telegram-btn">
+        Message Me on Telegram
+      </a>
+
+<!-- Floating Text Layer -->
+<div class="floating-text-layer" id="floatingLayer"></div>
+</div>
+
+    <footer>
+      © 2025 Araf Islam • Made by @Araf_Islamx
+    </footer>
+  </div>
+
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+let musicOn = true;
+
+function toggleMusic(){
+  if (music.paused) {
+    music.play();
+    musicOn = true;
+    enableTextGlow();
+    btn.classList.remove("paused");
+    btn.classList.add("playing");
+    document.querySelector(".music-hint").style.display = "none";
+  } else {
+    music.pause();
+    musicOn = false;
+    disableTextGlow();
+    btn.classList.remove("playing");
+    btn.classList.add("paused");
+  }
+}
+</script>
+
+<script>
+const floatingLayer = document.getElementById("floatingLayer");
+const words = ["Mahi", "Araf"];
+let wordIndex = 0;
+
+function enableTextGlow() {
+  document.querySelectorAll(".float-text").forEach(t =>
+    t.classList.add("glow")
+  );
+}
+
+function disableTextGlow() {
+  document.querySelectorAll(".float-text").forEach(t =>
+    t.classList.remove("glow")
+  );
+}
+</script>
+
+<script>
+function spawnFloatingText() {
+  const count = Math.floor(Math.random() * 2) + 1; // 1–2 texts together
+
+  for (let i = 0; i < count; i++) {
+    const text = document.createElement("span");
+    text.className = "float-text";
+    text.innerText = words[wordIndex];
+
+    wordIndex = (wordIndex + 1) % words.length;
+
+    const x = Math.random() * 80 + 5;
+    const y = Math.random() * 80 + 5;
+
+    text.style.left = x + "%";
+    text.style.top = y + "%";
+
+    if (musicOn) text.classList.add("glow");
+
+    /* slow parallax drift */
+    const driftX = (Math.random() * 12 - 6).toFixed(1);
+    const driftY = (Math.random() * 12 - 6).toFixed(1);
+
+    text.animate(
+      [
+        { transform: "translate(0,0)" },
+        { transform: `translate(${driftX}px, ${driftY}px)` }
+      ],
+      {
+        duration: 6000,
+        direction: "alternate",
+        iterations: Infinity,
+        easing: "ease-in-out"
+      }
+    );
+
+    floatingLayer.appendChild(text);
+
+    setTimeout(() => text.remove(), 7000);
+  }
+}
+
+/* spawn repeatedly */
+setInterval(spawnFloatingText, 2000);
+
+/* ==== MUSIC BEAT ANALYSER ==== */
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const source = audioCtx.createMediaElementSource(music);
+const analyser = audioCtx.createAnalyser();
+
+analyser.fftSize = 256;
+source.connect(analyser);
+analyser.connect(audioCtx.destination);
+
+const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+/* resume audio context on user interaction */
+document.body.addEventListener("click", () => {
+  if (audioCtx.state === "suspended") {
+    audioCtx.resume();
+  }
+});
+ </script>
+/* beat reactive glow + scale */
+<script>
+function reactToBeat() {
+  analyser.getByteFrequencyData(dataArray);
+  const avg =
+    dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+
+  const scale = musicOn ? 1 + avg / 500 : 1;
+
+  document.querySelectorAll(".float-text").forEach(el => {
+    el.style.transform = `scale(${scale})`;
+  });
+
+  requestAnimationFrame(reactToBeat);
+}
+
+reactToBeat();
+</script>
+
+</body>
+</html>

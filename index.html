@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Araf Islam - Official Profile</title>
 
-  <!-- SEO -->
+  <link rel="icon" type="image/jpeg" href="profile.jpg">
+  <link rel="apple-touch-icon" href="profile.jpg">
+
   <meta name="description" content="Araf Islam - Telegram Bot Developer, Web Developer, Automation Expert from Bangladesh">
   <meta name="keywords" content="Araf Islam, Telegram Bot, Web Developer, Node.js, Python">
   <meta name="author" content="Araf Islam">
@@ -229,65 +231,65 @@
       width: 20px;
     }
 
-/* Ultra Premium Music Hint */
-.music-hint {
-  position: fixed;
-  top: 60px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: #00c6ff;
-  z-index: 30;
-  white-space: nowrap;
-  animation: slideBounce 3.5s infinite;
-  text-shadow: 0 0 8px #00c6ff;
-}
+    /* Ultra Premium Music Hint */
+    .music-hint {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #00c6ff;
+      z-index: 30;
+      white-space: nowrap;
+      animation: slideBounce 3.5s infinite;
+      text-shadow: 0 0 8px #00c6ff;
+    }
 
-.music-hint .hand {
-  font-size: 18px;
-  animation: handBounce 0.8s infinite alternate;
-  filter: drop-shadow(0 0 6px #00c6ff);
-}
+    .music-hint .hand {
+      font-size: 18px;
+      animation: handBounce 0.8s infinite alternate;
+      filter: drop-shadow(0 0 6px #00c6ff);
+    }
 
-.music-hint .text {
-  padding: 3px 8px;
-  border-radius: 20px;
-  background: rgba(0, 198, 255, 0.15);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 12px rgba(0,198,255,0.6);
-}
+    .music-hint .text {
+      padding: 3px 8px;
+      border-radius: 20px;
+      background: rgba(0, 198, 255, 0.15);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 12px rgba(0,198,255,0.6);
+    }
 
-/* Left → Right + Glow */
-@keyframes slideBounce {
-  0% {
-    opacity: 0;
-    transform: translateX(-60px);
-  }
-  25% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  75% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-}
+    /* Left → Right + Glow */
+    @keyframes slideBounce {
+      0% {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+      25% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      75% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+    }
 
-/* Hand bounce */
-@keyframes handBounce {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-6px);
-  }
-}
+    /* Hand bounce */
+    @keyframes handBounce {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-6px);
+      }
+    }
 
     @keyframes rotateBtn {
       from { transform: rotate(0deg); }
@@ -300,103 +302,98 @@
       .card { padding: 25px 20px; }
     }
 
-/* Floating Text Layer */
-.floating-text-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
+    /* Floating Text Layer */
+    .floating-text-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
 
-.float-text {
-  position: absolute;
-  font-size: 18px;
-  font-weight: 600;
-  opacity: 0;
-  background: linear-gradient(135deg, #00c6ff, #ff5fd7, #00ffcc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: blur(0.3px);
-  animation: floatUp 7s ease-in-out forwards;
-}
+    .float-text {
+      position: absolute;
+      font-size: 18px;
+      font-weight: 600;
+      opacity: 0;
+      background: linear-gradient(135deg, #00c6ff, #ff5fd7, #00ffcc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: blur(0.3px);
+      animation: floatUp 7s ease-in-out forwards;
+    }
 
-/* floating motion */
-@keyframes floatUp {
-  0% {
-    opacity: 0;
-    transform: translateY(12px) scale(0.9);
-  }
-  25% {
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 0.55;
-  }
-  80% {
-    opacity: 0.25;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-18px) scale(1.05);
-  }
-}
+    /* floating motion */
+    @keyframes floatUp {
+      0% {
+        opacity: 0;
+        transform: translateY(12px) scale(0.9);
+      }
+      25% {
+        opacity: 0.35;
+      }
+      50% {
+        opacity: 0.55;
+      }
+      80% {
+        opacity: 0.25;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-18px) scale(1.05);
+      }
+    }
 
-/* Glow when music is ON */
-.float-text.glow {
-  animation: floatUp 7s ease-in-out forwards, glowPulse 0.6s ease-in-out infinite alternate;
-}
+    /* Glow when music is ON */
+    .float-text.glow {
+      animation: floatUp 7s ease-in-out forwards, glowPulse 0.6s ease-in-out infinite alternate;
+    }
 
-@keyframes glowPulse {
-  from {
-    text-shadow:
-      0 0 6px rgba(0,198,255,0.4),
-      0 0 12px rgba(255,95,215,0.3);
-  }
-  to {
-    text-shadow:
-      0 0 10px rgba(0,198,255,0.8),
-      0 0 22px rgba(255,95,215,0.6);
-  }
-}
+    @keyframes glowPulse {
+      from {
+        text-shadow:
+          0 0 6px rgba(0,198,255,0.4),
+          0 0 12px rgba(255,95,215,0.3);
+      }
+      to {
+        text-shadow:
+          0 0 10px rgba(0,198,255,0.8),
+          0 0 22px rgba(255,95,215,0.6);
+      }
+    }
 
-/* Parallax drift */
-.float-text {
-  animation: floatUp 7s ease-in-out forwards;
-  will-change: transform;
-}
+    /* Parallax drift */
+    .float-text {
+      animation: floatUp 7s ease-in-out forwards;
+      will-change: transform;
+    }
 
-/* extra drift motion */
-@keyframes drift {
-  from { transform: translateX(-6px); }
-  to   { transform: translateX(6px); }
-}
+    /* extra drift motion */
+    @keyframes drift {
+      from { transform: translateX(-6px); }
+      to   { transform: translateX(6px); }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Background Video -->
   <video autoplay muted loop playsinline preload="auto">
     <source src="bg.mp4" type="video/mp4">
   </video>
   <div class="overlay"></div>
 
-  <!-- Background Music -->
   <audio id="bgMusic" autoplay loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Music Button -->
   <div class="music-btn playing" id="musicBtn" onclick="toggleMusic()">
     <img src="music.jpg">
   </div>
 
-<!-- Music Hint -->
-<div class="music-hint">
-  <span class="hand">Play</span>
-  <span class="text">Music</span>
-</div>
+  <div class="music-hint">
+    <span class="hand">Play</span>
+    <span class="text">Music</span>
+  </div>
 
-  <!-- Social Media -->
   <div class="social-bar">
     <a href="https://t.me/Araf_Tech_Official"><img src="telegram.jpg"></a>
     <a href="https://x.com/ArafatHoss25632"><img src="x.jpg"></a>
@@ -404,7 +401,6 @@
     <a href="https://www.youtube.com/@araf_islamx"><img src="youtube.jpg"></a>
   </div>
 
-  <!-- Content -->
   <div class="container">
     <div class="card">
 
@@ -445,9 +441,8 @@
         Message Me on Telegram
       </a>
 
-<!-- Floating Text Layer -->
-<div class="floating-text-layer" id="floatingLayer"></div>
-</div>
+      <div class="floating-text-layer" id="floatingLayer"></div>
+    </div>
 
     <footer>
       © 2025 Araf Islam • Made by @Araf_Islamx
@@ -557,8 +552,8 @@ document.body.addEventListener("click", () => {
     audioCtx.resume();
   }
 });
- </script>
-/* beat reactive glow + scale */
+</script>
+
 <script>
 function reactToBeat() {
   analyser.getByteFrequencyData(dataArray);
